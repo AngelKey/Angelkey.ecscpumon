@@ -18,7 +18,7 @@ func main() {
 
 func mainInner() int {
 	var ezkey, statName string
-	flag.StringVar(&statName, "stat-name", "cpu usage", "Stat name")
+	flag.StringVar(&statName, "stat-name", "", "Stat name")
 	flag.StringVar(&ezkey, "stathat-ezkey", "x", "StatHat EZ Key")
 	flag.Parse()
 	if len(flag.Args()) != 1 {
@@ -27,6 +27,7 @@ func mainInner() int {
 	}
 	if len(statName) == 0 {
 		fmt.Fprintf(os.Stderr, "must provide a stat name\n")
+		return 1
 	}
 	procName := flag.Args()[0]
 	m := newMonitor(procName, ezkey, statName)
