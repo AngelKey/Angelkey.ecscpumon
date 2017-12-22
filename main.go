@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	stathat "github.com/stathat/go"
 	"os"
 	"os/exec"
 	"strconv"
